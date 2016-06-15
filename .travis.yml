@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: B7rrFNpQDLNzFNCBWSXhtk9GVJVbMwcWN4LmYLYJxjFqVnRREEyc9iVsdYXEtrGdiICM97oLATHwSeU0JB3UbUV9noTvNT+NGiaIE5pq85VeThJIIRR0xG2pFTR0+SZptvExNklGuf6dEm9d1EZxmeKFqLcuacJ2so80JSwnEXE8u5xDhR74NMIdjmJaf5Wj0gcxZN1Em/QmiXTSBnBZZlrlU+WgqPyjsHt54xdFcbg/TwLftmyREOv3vewuxysja1JpfKGey/nHjIaNCjtIEBzNB9Z5OZGkqOj9BLN4CM6hHOuvWL+XrXm/eS9j63YEg3Z8Lav1DXQpINexFPEcmx4/Xr2QHJVens6Xxznbd1yBSkWsrzNOFtPjtasz6s5ozVN8dr6lMFvMus+pdURgjBhl3Q2GwTgCVJyoFKgiEwjWn5BVYmY0tqYWtf97urakFE6KHM6AfUam8Dt6ik6BXKo7CQEQI6bVJ9KnO6T6q1JdiEz0K3T4gf+XnV74NjoNBXrRpFUyeiTqO6TxnYjzwdg0eP0CJvd9jqEHrp7JP0GGWd6K+0KChpoqtHbRJptnsDIuQbnTbkuK2ccdB1WHVSI6ggollDeUhUhif3+3TEzMN1MriwytVW4wx7wRtUh6z8igX0l6TUU3YZXS0Ks85ddNpojcXCCOFU7/kDPARbk=
+  app: protected-temple-80582
+  on:
+    repo: ckeyes88/ember-ui-tutorial
